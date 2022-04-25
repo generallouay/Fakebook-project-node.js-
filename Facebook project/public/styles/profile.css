@@ -1,0 +1,423 @@
+.nav-placeholder-m{
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+
+}
+
+.profile-header-sec{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px rgba(130, 130, 130, 0.468) solid;
+    box-shadow: 1px 1px 10px 1px rgba(138, 138, 138, 0.176);
+
+}
+.profile-header-container{
+    width: 65%;
+    max-width: 1000px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.profile-header-item{
+    width: 100%;
+}
+.p-h-f-i{
+    height: 67%;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 10px 10px;
+
+background-color: #ffffff;
+background-image: linear-gradient(900deg, #fafafa 0%, #c9c9c94f 90%);
+
+}
+.p-h-s-i{
+    height: 18%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.p-h-t-i{
+    height: 15%;
+    border-top: 1px solid rgba(130, 130, 130, 0.468);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.profile-photo-container{
+    width: 300px;
+    height: 300px;
+    border: 1px rgba(163, 163, 163, 0.144) solid;
+    border-radius: 50%;
+    margin-top: 1rem;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+#profile-image{
+    width: 300px;
+    height: 300px;
+    
+}
+
+.profile-name-sec{
+    min-width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5rem;
+}
+.p-b-s{
+    width: 230px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 5rem;
+}
+.p-cat-item{
+    width: 80px;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0.5rem;
+    border-radius: 20px;
+    transition: all ease 200ms;
+    overflow: hidden;
+}
+.p-cat-item a{
+    font-size: 1.2rem;
+    color: #797979;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 2rem;
+}
+.p-cat-item:hover{
+    background-color: #f2efef;
+
+}
+.p-b-s button{
+    border: none;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border-radius: 20px;
+    background-color: #edecec;
+    transition: all ease 300ms;
+}
+.p-b-s:last-of-type button:hover{
+    background-color: #dadada;
+
+}
+#add-friend-btn:hover{
+    background-color: #494d4f;
+
+}
+#add-friend-btn{
+    background-color: #212529;
+    color: #fff;
+
+}
+.profile-content-sec{
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #edededda;
+}
+.profile-content-container{
+    width: 70%;
+    max-width: 1000px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    
+    
+}
+.profile-intro{
+    height: 400px;
+    width: 40%;
+    border: 1px rgba(163, 163, 163, 0.317) solid;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 10px 1px rgba(138, 138, 138, 0.176);
+
+}
+
+.profile-posts{
+    box-shadow: 1px 1px 10px 1px rgba(138, 138, 138, 0.176);
+    width: 58%;
+    border: 1px rgba(163, 163, 163, 0.317) solid;
+    background-color: #fff;
+    border-radius: 20px;
+}
+h1{
+    font-family: sans-serif;
+}
+.intro-item{
+    width: 90%;
+    display: flex;
+    height: 40px;
+    align-items: center;
+
+}
+.intro-header{
+    height: 35px;
+
+}
+.itro-bio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 200px;
+    border-bottom: #edecec 1px solid;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding: 5px;
+    height: unset;
+}
+
+#edit-bio-btn{
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    border: none;
+    background-color: inherit;
+}
+
+.profile-intro i{
+    margin:0px 0.5rem;
+
+}
+.intro-item p {
+    margin-top: 0.9rem;
+}
+
+#bio-p-m{
+    color: #797979;
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    overflow-wrap: break-word;
+    min-height: 10px;
+}
+.intro-item a{
+    text-decoration: none;
+}
+.profile-posts{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+
+}
+
+.main-hr:last-of-type{
+    width: 90%;
+}
+
+.edit-post-div{
+    width: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-post-div button{
+    width: 80%;
+    height: 80%;
+    border: none;
+    background-color: #fff;
+}
+.post-manage-dropdown{
+    width: 80px;
+    height: 55px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    /* right: 29px; */
+    right: 10px;
+    top: 17px;
+    background-color: #fff;
+    border-radius: 10px 0px 10px 10px;
+    border: #79797948 1px solid;
+    z-index: 99;
+    transition: all ease 400ms;
+    opacity: 0;
+}
+.pfp-edit-dropdown{
+    position: absolute;
+    bottom: 20px;
+    background-color: #fff;
+
+
+}
+.active-dropDown{
+    transform: scale(1) translate(-30%, 0%);
+    opacity: 100%;
+}
+
+.post-edit-item, .post-delete-item{
+    width: 100%;    
+    height: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.post-edit-item{
+    border-bottom: #79797948 1px solid;
+}
+
+
+#d-p-f-d{
+    height: 180px;
+    justify-content: space-between;
+}
+
+#d-p-f-b-d{
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+}
+.d-p-f-header{
+    width: 100%;
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+#delete-post-cancel{
+    background-color: #eeeeee;
+    color: #212529;
+}
+#delete-post-cancel:hover{
+    background-color: #dadada;
+}
+body{
+    position: relative;
+}
+.profile-intro{
+    position: sticky;
+    top: 85px;
+}
+#accept-friend-btn{
+    background-color: #212529;
+    width: 100px;
+    color: #fff;
+}
+#remove-friend-btn{
+    background-color: #212529;
+    color: #fff;
+}
+.like-btn-home{
+    width: 100%;
+    /* padding: 1px 20px; */
+    height: 90%;
+    background-color: #FFFFFF;
+    border: none;
+    display: flex;
+    justify-content: center;
+
+}
+
+#modify-pfp{
+    position: absolute;
+    bottom: 35px;
+    right: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: 0.8rem;
+    border: rgba(138, 138, 138, 0.106) 1px solid;
+    transition: all ease 300ms;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+#modify-pfp:hover{
+    /* background-color: #000; */
+    width: 70px;
+    font-size: 0.9rem;
+    border-radius: 20px 0px 0px 20px;
+    right: 30px;
+    padding-right: 5px;
+    /* color: #fff; */
+    
+}
+.delete-pfp-btn{
+    width: 50%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.edit-pfp-btn{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-pfp-btn button{
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    padding: 10px;
+}
+.bio-inp{
+    outline: none;
+    width: 70%;
+    padding: 5px;
+    font-family: sans-serif;
+    height: 70%;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    margin-left: 2rem;
+}
+
+.update-bio-btn{
+    border: none;
+    background-color: inherit;
+    color: #000;
+    padding: 0;
+}
+
+.update-bio-form{
+    display: inline;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}

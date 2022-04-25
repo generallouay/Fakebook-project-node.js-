@@ -1,0 +1,245 @@
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: #EFEFEF;
+
+}
+
+.home-wrapper{
+    background-color: #EFEFEF;
+    max-width: 1300px;
+    min-height: 90vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.user-shortcuts , .users-friends-container{
+    width: 27%;
+    height: 80vh;
+    position: sticky;
+    top: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: aqua; */
+}
+/* .user-shortcuts{
+    
+} */
+.posts-container-home{
+    width: 46%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* background-color: aquamarine; */
+    padding: 15px;
+    position: relative;
+}
+.users-a-f-buttons{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.users-a-f-buttons button{
+    border: none;
+    cursor: pointer;
+    margin: 0px 10px;
+    padding: 7px 15px;
+    border-radius: 25px;
+    transition: ease all 300ms;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #717171;
+    
+}
+
+.users-a-f-buttons button:hover,.users-a-f-buttons .active-home-u-btns {
+    background-color: #212529df;
+    color: #fff;
+}
+
+
+
+.users-a-f-buttons span{
+    height: 30px;
+    width: 1px;
+    border-radius: 5px;
+    background-color: rgb(225, 225, 225);
+    margin-bottom: 8px;
+}
+.home-hr-m{
+    width: 80%;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: #a1a1a1;
+    
+}
+.friends-container-home , .users-container-home , .user-shortcuts-h-f{
+    background-color: #FAFAFA;
+    
+    box-shadow: 1px 1px 10px 1px rgba(138, 138, 138, 0.176);
+    border-radius: 10px;
+    width: 90%;
+    height: 75vh;
+    position: absolute;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.home-user-item{
+    width: 100%;
+    height: 70px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.users-container-home{
+    display: none;
+}
+.profile-image-userslist-home{
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.p-i-u-h-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px rgba(163, 163, 163, 0.144) solid;
+    overflow: hidden;
+}
+.p-i-u-h-item img{
+    width: 45px;
+    height: 45px;
+
+}
+.user-name-home{
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+    overflow: hidden;
+}
+.user-name-home a{
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    color: #000;
+    margin-top: 5px;
+}
+.users-list-hr{
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 80%;
+    height: 1px;
+    color: #aaaaaa;
+}
+.nav-placeholder-m{
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+
+}
+.user-shortcuts-h-f{
+    top: 10px;
+    height: 86vh;
+}
+
+/* .profile-image-userslist-home */
+.user-shortcuts-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-usershortcuts-btns{
+    width: 90%;
+    height: 40px;
+    border: none;
+  
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    transition: all ease 400ms;
+    border-radius: 15px;
+}
+
+.home-usershortcuts-btns:hover{
+      background-color: rgba(0, 0, 0, 0.061);
+}
+
+.home-usershortcuts-btns a{
+
+    /* background-color: #717171; */
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.home-usershortcuts-btns a i {
+    margin-bottom: 1px;
+}
+.create-post-div-home{
+    background-color: #fafafa;
+    position: sticky;
+    top: 85px;
+    z-index: 1;
+}
+.c-p-d-h-placeholder{
+    width: 100%;
+    height: 20px;
+}
+.post-item-p-home{
+    background-color: #fafafa;
+    width: 95%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 1px rgba(138, 138, 138, 0.176);
+    margin-bottom: 1rem;
+}
+
+.dropdown-menu{
+    z-index: 9999;
+}
+#nav-dropdown-main{
+    z-index: 1005;
+}
+.like-btn-home{
+    width: 100%;
+    /* padding: 1px 20px; */
+    height: 90%;
+    background-color: #FAFAFA;
+    border: none;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* .like-btn-home .fa-heart , .like-btn-home p{
+    color: rgb(149, 2, 2);
+} */

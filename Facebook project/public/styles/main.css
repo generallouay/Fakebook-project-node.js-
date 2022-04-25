@@ -1,0 +1,145 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+.navbar{
+    padding: 1rem 2rem;
+
+}
+.login-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.login-form{
+    height: 100%;
+    width: 50%;
+    padding: 5rem;
+
+}
+.login-form form{
+    border: 1px solid rgba(0, 0, 0, 0.363);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px -10px;
+    margin-top: 2rem;
+}
+
+.login-intro{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#login-btn{
+    width: 100%;
+}
+
+.login-intro-container{
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 3rem;
+
+}
+
+.main-h1-fb{
+    font-size: 4rem;
+}
+.main-p-fb{
+    font-size: 1.5rem;
+}
+.err-p-m{
+    color: red;
+}
+.err-p-singup{
+    margin-left: 3rem;
+}
+
+.overlay-main , .c-p-f-o , .e-p-f-o , .d-p-f-o , .delete-pfp-ov{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: ease all 500ms;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: 2;
+}
+
+.active{
+    opacity: 100;
+}
+.my-modal{
+    width: 40%;
+    height: 20vh;
+}
+#logout-btn{
+    cursor: pointer;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+#nav-noti-item{
+    position: relative;
+}
+.notifications-count-nav{
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: crimson;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    pointer-events: none;
+}
+.like-form{
+    width: 100%;
+    height: 100%;
+}
+.likes-count-p{
+    font-size: 12px;
+    /* color: #717171; */
+    margin-left: 6px;
+    margin-bottom: 3px;
+}
+
+.comment-btn-div{
+    font-size: 1.2rem;
+    color: #797979;
+}
+.like-btn-div i{
+    font-size: 1.2rem;
+    transition: all ease 200ms;
+}
+.like-btn-home{
+    color: #797979;
+}
+.active-like-btn{
+    color: rgb(194, 1, 1) ;
+
+}
