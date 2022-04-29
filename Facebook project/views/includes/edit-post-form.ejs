@@ -1,0 +1,42 @@
+<div class="e-p-f-o">
+    <div class="create-post-form-div">
+        <form id="edit-form" action="/post-edit/" method="post">
+            <div class="create-post-form-header">
+                <div class="create-post-form-empty-div"></div>
+                <div class="create-post-form-header-content">
+                    <h5>Edit Post</h5>
+                </div>
+                <div class="create-post-form-cancel-btn e-p-f-c-b">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <hr class="main-hr">
+
+
+
+            <div class="create-post-form-auther">
+                <div class="create-post-form-image">
+                    <img src="<%= user.profilePicturePath %> " id="c-p-f-i" alt="">
+                </div>
+                <div class="create-post-form-user">
+                    <a href=""><%= user.name %> </a>
+                </div>
+            </div>
+
+            <div class="create-post-form-title">
+                <label for="">Title</label>
+                <input type="text" name="title" id="c-p-title" spellcheck="false" class="e-p-title" autocomplete="off" required>
+            </div>
+            <hr class="main-hr">
+            
+            <div class="create-post-form-body">
+                <textarea name="content" id="c-p-textarea" cols="30" rows="10"  spellcheck="false" class="e-p-content" required></textarea>
+            </div>
+
+            <div class="create-post-form-button">
+                <button type="submit">Edit </button>
+            </div>
+            <input type="hidden" name="_id" id="" value="<%= user._id %>">
+        </form>
+    </div>
+</div>

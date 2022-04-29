@@ -1,0 +1,232 @@
+<%- include('includes/head') %> 
+<link rel="stylesheet" href="/styles/profile.css">
+<link rel="stylesheet" href="/styles/create-post-style.css">
+
+<title>Fakebook - <%= user.name %></title>
+
+</head>
+<body>
+    <%- include('includes/nav') %>
+    <div class="nav-placeholder-m">
+    </div>
+    <%- include('includes/notifications') %>
+    <section class="profile-header-sec">
+        <div class="profile-header-container">
+            <div class="profile-header-item p-h-f-i">
+                <div class="profile-photo-container">
+                    <img id="profile-image" src="<%= pfp %>" alt="invalid">
+                    <% if(isAdmin) {%>
+                    <div id="modify-pfp">
+                        <div class="delete-pfp-btn">
+                            <form action="/del-pfp" method="post">
+                                <button type="submit"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                        </div>
+                        <div class="edit-pfp-btn">
+                        <form action="/upload-pfp" method="post" enctype="multipart/form-data">
+                            <label for="files" class="btn"><i class="fa-solid fa-pen"></i></label>
+                          <input name="profile-pic" id="files" style="display: none;" type="file" onchange="this.form.submit()" accept=".jpg,.png,">
+                        </form>
+                        </div>
+           
+                            
+                    </div>
+               
+            
+                    <% } %> 
+                </div>
+
+            </div>
+            <div class="profile-header-item p-h-s-i">
+                <div class="profile-name-sec">
+                    <h1><%= user.name %> </h1>
+                </div>
+                <div class="p-b-s">
+                    <% if(isAdmin) {%> 
+                        <button id="edit-profile-btn">Edit Profile</button>
+                        <% }else {%> 
+                            
+
+                                <% if(added) {%> 
+                                    <form action="/cancel-req/<%= user.pageId %>" method="post">
+                                        <button type="submit" id="add-friend-btn">Cancel Request</button>
+                                    </form>
+
+                                <% } else if(wantsToBeFriends){%> 
+                                    <form action="/accept-friend/<%= user.pageId %>" method="post">
+                                        <button type="submit" id="accept-friend-btn">Accept</button>
+                                    </form>
+                                    <% } else if(!alreadyFriends){%> 
+                                        <form action="/add-friend/<%= user.pageId %>" method="post">
+                                            <button type="submit" id="add-friend-btn">Add Friend</button>
+                                        </form>
+
+                                        <% } else{%> 
+                                            <form action="/remove-friend/<%= user.pageId %>" method="post">
+                                                <button type="submit" id="remove-friend-btn">Remove Friend</button>
+                                            </form>
+                                            <% } %> 
+
+                              
+                    <button id="message-btn">Message</button>
+                            <% } %> 
+
+
+                </div>
+            </div>
+            <div class="profile-header-item p-h-t-i">
+                <div class="p-cat-item"><a href="">Posts</a></div>
+                <div class="p-cat-item"><a href="">About</a></div>
+                <div class="p-cat-item"><a href="">Friends</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-content-sec">
+        <section class="profile-content-container">
+            <section class="profile-intro">
+                <div class="intro-header intro-item">
+                    <h4>Intro</h4>
+                </div>
+                <div class="itro-bio intro-item">
+                    <p id="bio-p-m"><%= intro.bio %></p>
+                    <% if (isAdmin) {%> 
+                        <button id="edit-bio-btn"><i class="fa-solid fa-pen"></i></button>
+                    <% } %>     
+                </div>
+                <div class="intro-item">
+                    <i class="fa-solid fa-graduation-cap"></i><p>Studied at&nbsp</p> <b><%= intro.study %></b>
+                </div>
+                <div class="intro-item">
+                    <i class="fa-solid fa-briefcase"></i><p>Works at&nbsp</p> <b><%= intro.work %></b>
+                </div>
+                <div class="intro-item">
+                    <i class="fa-solid fa-house"></i><p>Lives in&nbsp</p><b><%= intro.residency %></b>
+                </div>
+                <div class="intro-item">
+                    <i class="fa-solid fa-location-dot"></i><p>From&nbsp</p><b><%= intro.origin %></b>
+                </div>
+                <div class="intro-item">
+                    <i class="fa-solid fa-heart"></i><p><%= intro.relationshipStatus %></p>
+                </div>
+                <div class="intro-item">
+                    <i class="fa-brands fa-instagram"></i><a href="">unset</a>
+                </div>
+
+            </section>
+
+         <section class="profile-posts">
+            <% if(isAdmin) {%> 
+                <div class="create-post-div">
+                    <div class="create-post-div-header">
+                        <div class="post-auth-image">
+                            <img src="<%= pfp %>" alt="" id="post-auth-img-cicle">
+                        </div>
+                        <div class="create-post-btn">
+                            <h6>What's on your mind?</h6>
+                        </div>
+                    </div>
+                    <hr class="main-hr">
+                    <div class="create-post-div-items">
+                        <div class="create-post-div-item">
+                            <i class="fa-solid fa-satellite-dish"></i><p>Go Live</p>
+                        </div>
+                        <div class="create-post-div-item">
+                            <i class="fa-solid fa-image"></i><p>Picture/Video</p>
+                        </div>
+                    </div>
+
+                </div>
+            <% } %> 
+
+
+
+            <% for (let i = user.posts.length -1 ; i >= 0 ; i--) {%>
+                <% const post = user.posts[i]; %>                
+                <div class="post-item-p">
+                    <div class="post-author">
+                        <div class="post-auth-image">
+                            <img src="<%= pfp %>" alt="" id="post-auth-img-cicle">
+                        </div>
+                        <div class="post-auth-name">
+                            <a href=""><%= post.author.name%></a>
+                        </div>
+                        <div class="post-publish-date">
+                            <p>
+                                
+                                <% const postHour = post.time.slice(0,2) %> 
+                                <% const postMin = post.time.slice(3,5) %> 
+                                <%= postHour %>:
+                                <%= postMin %>
+                                <%= post.date %> 
+
+                            </p> 
+                        </div>
+                        <% if(isAdmin) {%> 
+                            <div class="edit-post-div">
+                                <button class="manage-post-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                            </div>
+                            <div class="post-manage-dropdown">
+                                <div class="post-edit-item">
+                                    Edit
+                                </div>
+                                <input type="hidden" value="<%= post.id %> ">
+                                <div class="post-delete-item">
+                                    Delete
+                                </div>
+                            </div>
+                            <% } %> 
+
+                    </div> 
+                    <hr class="main-hr">
+                    <div class="post-title">
+                        <p><%= post.title %> </p>
+                    </div>
+                    <div class="post-content">
+                        <p><%= post.content %> </p>
+                    </div>
+                    <hr class="main-hr">
+                    <div class="post-buttons">
+                        <div class="like-btn-div">
+                            <form action="/like" method="post" class="like-form">
+                                <input type="hidden" name="postId" value="<%= post.id %>" id="">
+                                <input type="hidden" name="userid" value="<%= post.author.pageId %>" id="">
+                                <input type="hidden" name="likeorcancel">
+                                <button class="like-btn-home
+                                <% for (like of post.likes) {%> 
+                                    <% if (like.pageId === loggedInUser.pageId) {%> 
+                                        active-like-btn 
+                                        <% break %> 
+                                    <% } %> 
+                                <% } %> 
+                                
+                                " type="submit"><i class="fa-solid fa-heart"></i><p class="likes-count-p"><%= post.likes.length %></button>
+                            </form>
+                        </div>
+                        <div class="comment-btn-div">
+                            <i class="fa-solid fa-comment"></i>
+                        </div>
+
+                    </div>
+                </div>
+            <% } %> 
+
+
+
+         </section>
+        </section>
+
+    </section>
+
+
+
+
+
+    <%- include('includes/logout-overlay') %>
+    <%- include('includes/create-post-form') %>
+    <%- include('includes/edit-post-form') %>
+    <%- include('includes/delete-post-form') %>
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/profile.js"></script>
+</body>
+</html>

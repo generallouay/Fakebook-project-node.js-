@@ -1,0 +1,210 @@
+<%- include('includes/head') %> 
+<link rel="stylesheet" href="/styles/home.css">
+<link rel="stylesheet" href="/styles/create-post-style.css">
+<link rel="stylesheet" href="/styles/chats.css">
+
+<title>Fakebook - Home</title>
+
+</head>
+<body>
+    <%- include('includes/nav') %>
+    <div class="nav-placeholder-m">
+    </div>
+    <%- include('includes/notifications') %>
+    <%- include('includes/chats') %>
+    <div class="home-wrapper">
+        <div class="user-shortcuts">
+            <div class="user-shortcuts-h-f">
+                <div class="home-user-item">
+                    <div class="profile-image-userslist-home">
+                        <div class="p-i-u-h-item">
+                            <img src="<%= loggedInPfp  %> " alt="no image">
+                        </div>
+                    </div>
+                    <div class="user-name-home">
+                        <a href="/users/<%= loggedInUser.pageId %>"><%= loggedInUser.name %></a>
+                    </div>
+                </div>
+                <hr class="users-list-hr">
+                <div class="home-user-item">
+                    <div class="user-name-home home-usershortcuts-btns">
+                            <a href="/comingsoon" class="a-usershortcuts"><i class="fa-solid fa-user-group"></i>&nbsp; Friends</a>
+                    </div>
+                </div>
+                <hr class="users-list-hr">
+
+                <div class="home-user-item">
+                    <div class="user-name-home home-usershortcuts-btns">
+                            <a href="/comingsoon" class="a-usershortcuts"><i class="fa-solid fa-layer-group"></i>&nbsp; Groups</a>
+                    </div>
+                </div>
+                <hr class="users-list-hr">
+
+                <div class="home-user-item">
+                    <div class="user-name-home home-usershortcuts-btns">
+                            <a href="/comingsoon" class="a-usershortcuts"><i class="fa-solid fa-bookmark"></i>&nbsp; Saved</a>
+                    </div>
+                </div>
+                <hr class="users-list-hr">
+                <div class="home-user-item">
+                    <div class="user-name-home home-usershortcuts-btns">
+                            <a href="/comingsoon" class="a-usershortcuts"><i class="fa-solid fa-star"></i>&nbsp; Favourites</a>
+                    </div>
+                </div>
+                <hr class="users-list-hr">
+            </div>
+
+
+
+
+
+        </div>
+
+
+        <div class="posts-container-home">
+
+            
+            <div class="create-post-div create-post-div-home">
+                <div class="create-post-div-header">
+                    <div class="post-auth-image">
+                        <img src="<%= loggedInPfp %> " alt="" id="post-auth-img-cicle">
+                    </div>
+                    <div class="create-post-btn">
+                        <h6>What's on your mind?</h6>
+                    </div>
+                </div>
+                <hr class="main-hr">
+                <div class="create-post-div-items">
+                    <div class="create-post-div-item">
+                        <i class="fa-solid fa-satellite-dish"></i><p>Go Live</p>
+                    </div>
+                    <div class="create-post-div-item">
+                        <i class="fa-solid fa-image"></i><p>Picture/Video</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="c-p-d-h-placeholder"></div>
+            <% for (post of shuffledFeed) {%>
+          
+                <div class="post-item-p post-item-p-home">
+                    <div class="post-author">
+                        <div class="post-auth-image">
+                            <img src="<%= post.author.pfpfix %>" alt="invalid" id="post-auth-img-cicle">
+                        </div>
+                        <div class="post-auth-name">
+                            <a href="/users/<%= post.author.pageId%>"><%= post.author.name%></a>
+                        </div>
+                        <div class="post-publish-date">
+                            <p>
+                                
+                                <% const postHour = post.time.slice(0,2) %> 
+                                <% const postMin = post.time.slice(3,5) %> 
+                                <%= postHour %>:
+                                <%= postMin %>
+                                <%= post.date %> 
+                            </p> 
+                        </div>
+                        <% if(isAdmin) {%> 
+                            <div class="edit-post-div">
+                                <button class="manage-post-btn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                            </div>
+                            <div class="post-manage-dropdown">
+                                <div class="post-edit-item">
+                                    Edit
+                                </div>
+                                <input type="hidden" value="<%= post.id %> ">
+                                <div class="post-delete-item">
+                                    Delete
+                                </div>
+                            </div>
+                            <% } %> 
+
+                    </div> 
+                    <hr class="main-hr">
+                    <div class="post-title">
+                        <p><%= post.title %> </p>
+                    </div>
+                    <div class="post-content">
+                        <p><%= post.content %> </p>
+                    </div>
+                    <hr class="main-hr">
+                    <div class="post-buttons">
+                        <div class="like-btn-div">
+                        <form action="/like" method="post" class="like-form">
+                            <input type="hidden" name="postId" value="<%= post.id %>" id="">
+                            <input type="hidden" name="userid" value="<%= post.author.pageId %>" id="">
+                            <input type="hidden" name="likeorcancel">
+                            <button class="like-btn-home
+                            <% for (like of post.likes) {%> 
+                                <% if (like.pageId === loggedInUser.pageId) {%> 
+                                    active-like-btn 
+                                    <% break %> 
+                                <% }%> 
+                            <% } %>" type="submit"><i class="fa-solid fa-heart"></i><p class="likes-count-p"><%= post.likes.length %></p></button>
+                        </form>
+
+                        </div>
+                        <div class="comment-btn-div">
+                            <i class="fa-solid fa-comment"></i>
+                        </div>
+
+                    </div>
+                </div>
+            <% } %>
+
+        </div>
+
+        <div class="users-friends-container">
+            <div class="users-a-f-buttons">
+                <button id="show-all-friends-btn-home" class="active-home-u-btns">Friends</button>
+                <span></span>
+                <button id="show-all-users-btn-home" >All Users</button>
+            </div>
+            <!-- <hr class="main-hr home-hr-m"> -->
+            <div class="users-container-home">
+                <% for (user of allUsers) {%> 
+                    <div class="home-user-item">
+                        <div class="profile-image-userslist-home">
+                            <div class="p-i-u-h-item">
+                                <img src="<%= user.profilePicturePath %>" alt="">
+                            </div>
+                        </div>
+                        <div class="user-name-home">
+                            <a href="/users/<%= user.pageId %>"><%= user.name %> </a>
+                        </div>
+                    </div>
+                    <hr class="users-list-hr">
+                <% } %> 
+            </div>
+            <div class="friends-container-home">
+                <% for (friend of friends) {%> 
+                    <div class="home-user-item">
+                        <div class="profile-image-userslist-home">
+                            <div class="p-i-u-h-item">
+                                <img src="<%= friend.pfpfix %> " alt="">
+                            </div>
+                        </div>
+                        <div class="user-name-home">
+                            <a href="/users/<%= friend.pageId %>"><%= friend.name %></a>
+                        </div>
+                    </div>
+                    <hr class="users-list-hr">
+                <% } %> 
+
+            </div>
+
+        </div>
+        
+    </div>
+
+
+    <%- include('includes/create-post-form') %>
+    <%- include('includes/logout-overlay') %>
+    <script defer src="/scripts/script.js"></script>
+    <script defer src="/scripts/home.js"></script>
+    <script defer src="/scripts/profile.js"></script>
+    <script defer src="/scripts/chats.js"></script>
+
+</body>
+</html>

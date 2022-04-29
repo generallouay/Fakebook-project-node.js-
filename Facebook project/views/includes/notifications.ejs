@@ -1,0 +1,16 @@
+<div class="notifications-wrapper">
+    <%if (friendRequests.length){%>
+        <% for(item of friendRequests) {%> 
+            <div class="notification-item">
+                <a href="/users/<%= item.pageId %>"><%= item.name %></a><p>Wants to be your friend</p>
+            </div>
+        <% } %>
+    <%}else{%>
+        <h5>You have no notifications!</h5>
+    <%}%>
+
+
+
+
+
+</div>
